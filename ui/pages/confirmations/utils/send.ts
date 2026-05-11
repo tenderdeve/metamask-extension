@@ -137,7 +137,7 @@ export const prepareEVMTransaction = (
   const trxnParams: TransactionParams = { from };
 
   const tokenValue = asset.tokenId
-    ? value
+    ? addHexPrefix(new Numeric(value ?? '0', 10).toBase(16).toString())
     : fromTokenMinimalUnits(value ?? '0', asset.decimals);
 
   // Native token
